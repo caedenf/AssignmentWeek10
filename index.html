@@ -15,9 +15,10 @@
 					holiday = JSON.parse(result);
 					holidayArray = holiday["response"]["holidays"];
 					for (var i = 0; i < holidayArray.length; i++) {
-						if (holidayArray[i].locations == "CA")
+						if (holidayArray[i].locations == "CA") {
 							document.getElementById("results").innerHTML += "Name: " + holidayArray[i].name + "<br/>";
 							document.getElementById("results").innerHTML += "Description: " + holidayArray[i].description + "<br/><br/>";
+						}
 		
 					}
 					console.log(holidayArray);
