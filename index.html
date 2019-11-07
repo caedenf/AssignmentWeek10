@@ -3,27 +3,27 @@
 <head>
   <title>Week 10 - API</title>
   <script>
-  function getAirports() {
+  function getHolidays() {
     request = new XMLHttpRequest();
-    request.open("GET", "https://api.lufthansa.com/v1/references/airports/nearest/42.418,-71.107", true);
+    request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
     request.onreadystatechange = function() {
 	    if (request.readyState == 4 && request.status == 200) {
-        result = request.responseText;
-			  alert(result)
-			  airports = JSON.parse(result);
-			  //document.getElementById("data").innerHTML ="current temp in boston: " + weather["main"]["temp"]; 
+            	result = request.responseText;
+		alert(result)
+		airports = JSON.parse(result);
+		//document.getElementById("data").innerHTML ="current temp in boston: " + weather["main"]["temp"]; 
 		  } else if (request.readyState == 4 && request.status != 200) {
 			  document.getElementById("data").innerHTML = "Status error";
 		  } else if (request.readyState == 3) {
 			  document.getElementById("data").innerHTML = "Ready state error";
-      }
+      		  }
 			request.send();
 		}
   }
   </script>
 </head>
-<body onload="getAirports()">
-	<h1>Airports</h1>
+<body onload="getHolidays()">
+	<h1>Holidays</h1>
 	<div id="data">Loading...</div>
 </body>
 </html>
