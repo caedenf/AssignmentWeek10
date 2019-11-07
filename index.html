@@ -1,61 +1,31 @@
 <!doctype html>
 <html>
 <head>
-	<title>Weather API</title>
-	<meta charset="utf-8"/>
+	<title>Holiday API</title>
 	<script>
-		function getWeather() {
-			/* Step 1: Make instance of request object...
-			...to make HTTP request after page is loaded*/
+		function getHolidays() {
 			request = new XMLHttpRequest();
-			console.log("1 - request object created");
- 
-			// Step 2: Set the URL for the AJAX request to be the JSON file
- 
 			request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
-
-			console.log("2 - opened request file");
- 
-			// Step 3: set up event handler/callback
-
 			request.onreadystatechange = function() {
-				console.log("3 - readystatechange event fired.");
- 
 				if (request.readyState == 4 && request.status == 200) {
-
-					// Step 5: wait for done + success
-
 					result = request.responseText;
 					alert(result)
-					weather = JSON.parse(result);
-					
-					document.getElementById("data").innerHTML ="current temp in boston: " + weather["response"]["holidays"]["name"]; 
-					
+					holiday = JSON.parse(result);
+					document.getElementById("data").innerHTML = holiday;
 				}
 				else if (request.readyState == 4 && request.status != 200) {
-
-					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
-
+					document.getElementById("data").innerHTML = "Status error";
 				}
-
 				else if (request.readyState == 3) {
-
-					document.getElementById("data").innerHTML = "Too soon!  Try again";
-
+					document.getElementById("data").innerHTML = "Ready state error";
 				}
-
 			}
-		// Step 4: fire off the HTTP request
 			request.send();
-			console.log("4 - Request sent");
 		}
 	</script>
 </head>
-
-
-<body onload="getWeather()">
-
-	<h1>Weather</h1>
+<body onload="getHolidays()">
+	<h1>Holidays</h1>
 	<div id="data">Loading...</div>
 </body>
 </html>
