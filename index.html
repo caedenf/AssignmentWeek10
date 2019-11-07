@@ -15,7 +15,7 @@
 					holiday = JSON.parse(result);
 					holidayArray = holiday["response"]["holidays"];
 					for (var i = 0; i < holidayArray.length; i++) {
-						if (holidayArray[i].locations == "MA")
+						if (holidayArray[i].locations == "FL")
 							document.getElementById("results").innerHTML += holidayArray[i].name + "<br/>";
 					}
 					console.log(holidayArray);
@@ -34,7 +34,7 @@
 <body onload="getHolidays()">
 	<h1>Holidays</h1>
 	<div id="data">Data is loading...</div><br/>
-	<p>Massachusetts Holidays in 2019 are:</p><br/>
+	<p>Florida Holidays in 2019 are:</p><br/>
 	<div id="results"></div>
 	
 </body>
