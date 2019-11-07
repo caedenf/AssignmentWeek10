@@ -5,7 +5,9 @@
   <script>
   function getHolidays() {
     request = new XMLHttpRequest();
-    request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
+	  console.log("here0");
+    request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019/json", true);
+	  console.log("here1/2");
     request.onreadystatechange = function() {
 	    if (request.readyState == 4 && request.status == 200) {
 		    console.log("Here1");
