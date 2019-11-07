@@ -9,7 +9,7 @@
 			request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
-					document.getElementById("data").innerHTML = "Done!";
+					document.getElementById("data").innerHTML = "Done loading!";
 					result = request.responseText;
 					holiday = JSON.parse(result);
 					holidayArray = holiday["response"]["holidays"];
