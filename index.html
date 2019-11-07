@@ -3,12 +3,14 @@
 <head>
   <title>Week 10 - API</title>
   <script>
+	  console.log("run1");
   function getHolidays() {
     request = new XMLHttpRequest();
 	  console.log("here0");
     request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019/json", true);
 	  console.log("here1/2");
     request.onreadystatechange = function() {
+	    console.log("here2/3");
 	    if (request.readyState == 4 && request.status == 200) {
 		    console.log("Here1");
             	result = request.responseText;
