@@ -5,6 +5,7 @@
 	<script>
 		var holidayArray = [];
 		function getHolidays() {
+			console.log("run1");
 			request = new XMLHttpRequest();
 			request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
 			request.onreadystatechange = function() {
@@ -12,7 +13,7 @@
 					document.getElementById("data").innerHTML = "Done!";
 					result = request.responseText;
 					holiday = JSON.parse(result);
-					holidayArray = holiday[meta][response];
+					holidayArray = holiday["meta"]["response"];
 					console.log(holidayArray);
 				}
 				else if (request.readyState == 4 && request.status != 200) {
