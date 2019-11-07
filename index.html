@@ -9,17 +9,17 @@
 			request.open("GET", "https://calendarific.com/api/v2/holidays?&api_key=9aed2ffec8b5a8dfd527cd3a90b71c188b6e2167&country=US&year=2019", true);
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
+					document.getElementById("data").innerHTML = "Done!";
 					result = request.responseText;
-					alert(result)
 					holiday = JSON.parse(result);
-					holidayArray = holiday;
+					holidayArray = holiday[meta][response];
 					console.log(holidayArray);
 				}
 				else if (request.readyState == 4 && request.status != 200) {
-					document.getElementById("data").innerHTML = "Status error";
+					alert("Status error");
 				}
 				else if (request.readyState == 3) {
-					document.getElementById("data").innerHTML = "Waiting...";
+					document.getElementById("data").innerHTML = "Still loading...";
 				}
 			}
 			request.send();
@@ -28,6 +28,8 @@
 </head>
 <body onload="getHolidays()">
 	<h1>Holidays</h1>
-	<div id="data">Loading...</div>
+	<p>Data is </p><div id="data">loading...</div><br/>
+	<p>U.S. Holidays in 2019 are:</p><br/>
+	
 </body>
 </html>
