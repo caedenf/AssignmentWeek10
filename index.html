@@ -11,13 +11,13 @@
 					result = request.responseText;
 					alert(result)
 					holiday = JSON.parse(result);
-					document.getElementById("data").innerHTML = holiday;
+					console.log(holiday);
 				}
 				else if (request.readyState == 4 && request.status != 200) {
 					document.getElementById("data").innerHTML = "Status error";
 				}
 				else if (request.readyState == 3) {
-					document.getElementById("data").innerHTML = "Ready state error";
+					document.getElementById("data").innerHTML = "Waiting...";
 				}
 			}
 			request.send();
